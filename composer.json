@@ -1,0 +1,45 @@
+{
+    "name": "qingbing/pf-widgets-form-generator",
+    "description": "渲染部件——form 表单构造器，分为表单选项和表单渲染",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "form",
+        "form-generator",
+        "form-options"
+    ],
+    "homepage": "http://www.phpcorner.net",
+    "authors": [
+        {
+            "name": "qingbing",
+            "email": "780042175@qq.com"
+        }
+    ],
+    "require": {
+        "qingbing/php-helper": ">=1.0, <2.0",
+        "qingbing/php-html": ">=1.0, <2.0",
+        "qingbing/php-render": ">=1.0, <2.0"
+    },
+    "require-dev": {
+        "qingbing/php-file-cache": ">=1.0, <2.0",
+        "qingbing/php-upload": ">=1.0, <2.0",
+        "qingbing/pf-components-assets-manager": ">=1.0, <2.0",
+        "qingbing/pf-widgets-kindeditor": ">=1.0, <2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/FormGenerator.php"
+        ],
+        "psr-4": {
+            "Abstracts\\": "src/abstracts",
+            "Widgets\\": "src/widgets"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TestApp\\": "test/app",
+            "Controllers\\": "test/controllers"
+        }
+    }
+}
