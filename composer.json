@@ -19,13 +19,12 @@
     "require": {
         "qingbing/php-helper": ">=1.0, <2.0",
         "qingbing/php-html": ">=1.0, <2.0",
-        "qingbing/php-render": ">=1.0, <2.0"
+        "qingbing/php-render": ">=1.0, <2.0",
+        "qingbing/pf-tools-upload": ">=1.0, <2.0",
+        "qingbing/pf-widgets-kindeditor": ">=1.0, <2.0"
     },
     "require-dev": {
-        "qingbing/php-file-cache": ">=1.0, <2.0",
-        "qingbing/php-upload": ">=1.0, <2.0",
-        "qingbing/pf-components-assets-manager": ">=1.0, <2.0",
-        "qingbing/pf-widgets-kindeditor": ">=1.0, <2.0"
+        "qingbing/php-file-cache": ">=1.0, <2.0"
     },
     "autoload": {
         "classmap": [

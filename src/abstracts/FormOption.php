@@ -11,6 +11,7 @@ namespace Abstracts;
 
 use Helper\Coding;
 use Helper\Exception;
+use Tools\UploadFile;
 
 abstract class FormOption extends FormModel
 {
@@ -275,7 +276,7 @@ abstract class FormOption extends FormModel
                     $tmp['range'] = $op['input_data'];
                     break;
                 case \FormGenerator::INPUT_TYPE_FILE:
-                    array_push($tmp, \UploadFile::VALID_CLASS);
+                    array_push($tmp, UploadFile::VALID_CLASS);
                     if (isset($op['file_extensions'])) {
                         if (!is_array($op['file_extensions'])) {
                             $op['file_extensions'] = array_map('trim', explode('|', $op['file_extensions']));;
