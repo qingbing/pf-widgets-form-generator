@@ -24,7 +24,8 @@
         "qingbing/pf-widgets-kindeditor": ">=1.0, <2.0"
     },
     "require-dev": {
-        "qingbing/php-file-cache": ">=1.0, <2.0"
+        "qingbing/php-file-cache": ">=1.0, <2.0",
+        "qingbing/pf-components-error-handler": ">=1.0, <2.0"
     },
     "autoload": {
         "classmap": [

@@ -135,7 +135,22 @@ EDO;
         switch ($op['input_type']) {
             case \FormGenerator::INPUT_TYPE_TEXT:
                 $this->addHtmlClass($htmlOptions, 'form-control');
-                $html = Html::activeTextField($this->model, $op['code'], $htmlOptions);
+                if (in_array($op['data_type'], ['date', 'time'])) {
+                    $htmlOptions['readonly'] = 'readonly';
+                    $html = Html::activeTextField($this->model, $op['code'], $htmlOptions);
+                    $datetime = '';
+                    if ('time' == $op['data_type']) {
+                        $datetime = 'data-time="true"';
+                    }
+                    $html = <<<EDO
+            <div class="input-group w-dateRange" {$datetime}>
+                <span class="input-group-addon fa fa-calendar"></span>
+                {$html}
+            </div>
+EDO;
+                } else {
+                    $html = Html::activeTextField($this->model, $op['code'], $htmlOptions);
+                }
                 break;
             case \FormGenerator::INPUT_TYPE_TEXTAREA:
                 $this->addHtmlClass($htmlOptions, 'form-control');
@@ -217,6 +232,8 @@ EDO;
             $label .= '：';
         }
         if (null !== $helpBlockId) {
+
+
             return <<<EOD
 <dl class="form-group row">
     <dt class="col-md-3 col-sm-3 col-lg-3 control-label">{$label}</dt>
@@ -298,15 +315,9 @@ EOD;
                             break;
                         case \FormGenerator::DATA_TYPE_DATE:
                             $htmlOptions['data-valid-type'] = 'date';
-                            // 接入前端日历插件
-                            $htmlOptions['class'] = 'w-dateRange';
-                            $htmlOptions['data-time'] = 'false';
                             break;
                         case \FormGenerator::DATA_TYPE_TIME:
-                            $htmlOptions['data-valid-type'] = 'date';
-                            // 接入前端日历插件
-                            $htmlOptions['class'] = 'w-dateRange';
-                            $htmlOptions['data-time'] = 'true';
+                            $htmlOptions['data-valid-type'] = 'datetime';
                             break;
                         case \FormGenerator::DATA_TYPE_PASSWORD:
                             $htmlOptions['data-valid-type'] = 'password';
