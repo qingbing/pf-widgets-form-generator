@@ -458,7 +458,11 @@ EOD;
                     }
                     break;
             }
-            $this->_htmlOptions[$code] = $htmlOptions;
+            if (isset($op['htmlOptions'])) {
+                $this->_htmlOptions[$code] = array_merge($htmlOptions, $op['htmlOptions']);
+            } else {
+                $this->_htmlOptions[$code] = $htmlOptions;
+            }
         }
         return $this->_htmlOptions [$code];
     }
